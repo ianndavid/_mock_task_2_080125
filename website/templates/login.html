@@ -1,0 +1,29 @@
+{% extends 'home.html'%}
+
+{% block content %}
+<form method="POST" class="form-container">
+    <h3>Login</h3>
+
+
+            <label for="username">Username</label>
+            <input 
+            type="text" 
+            class="form" 
+            id="username" 
+            name="username" 
+            placeholder="Enter a username" 
+            required/>
+
+            <label for="password">Password</label>
+            <input 
+            type="password" 
+            class="form" 
+            id="password" 
+            name="password" 
+            placeholder="Enter a password" 
+            required/>
+
+            <button type="submit" class="btn">Login</button>
+    </div>
+</form>
+{% endblock %}
