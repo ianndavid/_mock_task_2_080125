@@ -1,1 +1,50 @@
-{% extends 'home.html'%}
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Welcome...{{ current_user.username }}</h1>
+
+<br>
+
+
+<form method="POST" class="form-container">
+    <h3>Profile Infomation</h3>
+            
+            <label for="email">Change email</label>
+            <input 
+            type="email" 
+            class="form" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email" 
+            required/>
+            <div>
+                Your current email: {{ current_user.email }}
+            </div>
+
+            <label for="username">Change Username</label>
+            <input 
+            type="username" 
+            class="form" 
+            id="username" 
+            name="username" 
+            placeholder="Enter username" 
+            required/>
+            <div>
+                Your current username: {{ current_user.username }}
+            </div>
+
+            <br>
+            <button type="submit" class="btn">Save Changes</button>
+    </div>
+</form>
+    <li class="nav-item">
+    <a class="nav-link" id="delete" onclick="return confirm('Are you sure you want to DELETE your ACCOUNT. This Cannot be undone')" href="/remove">Delete Account</a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="/bookings">My Bookings</a>
+        </li>
+
+        
+{% endblock %}
