@@ -8,7 +8,7 @@
 
 
 <form method="POST" class="form-container">
-    <h3>Profile Infomation</h3>
+    <h3>Profile Information</h3>
             
             <label for="email">Change email</label>
             <input 
@@ -17,7 +17,7 @@
             id="email" 
             name="email" 
             placeholder="Enter email" 
-            required/>
+            />
             <div>
                 Your current email: {{ current_user.email }}
             </div>
@@ -29,13 +29,17 @@
             id="username" 
             name="username" 
             placeholder="Enter username" 
-            required/>
+            />
             <div>
                 Your current username: {{ current_user.username }}
             </div>
-
+            
             <br>
             <button type="submit" class="btn">Save Changes</button>
+            <label for="option1">
+                <div>
+                    
+                </div>
     </div>
 </form>
     <li class="nav-item">
@@ -43,8 +47,12 @@
     </li>
     
     <li class="nav-item">
-        <a class="nav-link" href="/bookings">My Bookings</a>
+        <a class="nav-link" href="/booking">Booking Tickets</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/booking">Book Hotel tickets</a>
+            </li>
 
         
 {% endblock %}

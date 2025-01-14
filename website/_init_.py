@@ -8,7 +8,7 @@ from db_file import db
 
 #Creating a database
 
-db_name = 'database.db'
+db_name = 'dbase.db'
 
 
 
@@ -19,9 +19,9 @@ def start_app():
     
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'H432HDF832HBDNGGFYG'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbase.db'
     db.init_app(app)
-
+    #Login manager
     login_manager = LoginManager()
     login_manager.login_view = 'auth.Login'
     login_manager.init_app(app)

@@ -1,1 +1,40 @@
 {% extends 'base.html'%}
+
+{% block content %}
+<h3>Make a Booking </h3>
+
+<div>
+    Booking for {{ current_user.username }}
+</div>
+<div>
+    Email: {{ current_user.email }}
+</div>
+<label for="Booking-Date">Date for Booking</label>
+            <input 
+            type="date" 
+            class="form" 
+            id="Booking-Date" 
+            name="Booking-Date" 
+            placeholder="" 
+            />
+            <div>
+<label for="Booking-Amount">Amount of People</label>
+            <input 
+            type="number" 
+            class="form" 
+            id="Booking-Amount" 
+            name="Booking-Amount" 
+            placeholder="" 
+            />
+            <div>
+
+            <br>
+            <button type="submit" class="btn">Create Booking</button>
+            <label for="option1">
+
+
+                <div>
+                    
+                </div>
+
+{% endblock %}
