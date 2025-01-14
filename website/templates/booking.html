@@ -9,6 +9,7 @@
 <div>
     Email: {{ current_user.email }}
 </div>
+<form form method="POST" class="form-container">
 <label for="Booking-Date">Date for Booking</label>
             <input 
             type="date" 
@@ -31,10 +32,10 @@
             <br>
             <button type="submit" class="btn">Create Booking</button>
             <label for="option1">
-
+</form>
 
                 <div>
-                    
+                    {{ current_user.bookings }}
                 </div>
 
 {% endblock %}
