@@ -21,18 +21,27 @@ def FAQ():
 def Cart():
     return render_template('cart.html')
 
+
+#try get Booking
 @frt.route('/booking', methods=['GET','POST'])
 @login_required
 def Book():
         if request.method == 'POST':
-            amount_people = request.form.get('Booking-Amount')
-            date = request.form.get('Booking-Date')
-            user_id = current_user.id
+            amount_people = request.form.get('booking_amount')
+            date = request.form.get('booking_date')
 
-            New_booking = Booking(amount_people=amount_people,date=date,user_id=user_id)
-            db.session.add(New_booking)
-            flash('Booking successful',category='success')
-
+            new_booking = Booking(amount_people=amount_people, date=date)
+            db.session.add(new_booking)
             db.session.commit()
-            
-        return render_template('booking.html',user=current_user)
+
+            flash('Booking successful', category='success')
+            return redirect(url_for('frt.bookingauth', booking_id = new_booking.booking_id))
+
+        return render_template('booking.html', user=current_user)
+    
+@frt.route('/bookingauth', methods=['GET','POST'])
+@login_required
+def bookingauth():
+    
+    return render_template('bookingauth.html', user=current_user, booking_id=booking_id)
+    

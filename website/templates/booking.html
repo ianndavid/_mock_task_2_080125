@@ -10,21 +10,21 @@
     Email: {{ current_user.email }}
 </div>
 <form form method="POST" class="form-container">
-<label for="Booking-Date">Date for Booking</label>
+<label for="booking_date">Date for Booking</label>
             <input 
             type="date" 
             class="form" 
-            id="Booking-Date" 
-            name="Booking-Date" 
+            id="booking_date" 
+            name="booking_date" 
             placeholder="" 
             />
             <div>
-<label for="Booking-Amount">Amount of People</label>
+<label for="booking_amount">Amount of People</label>
             <input 
             type="number" 
             class="form" 
-            id="Booking-Amount" 
-            name="Booking-Amount" 
+            id="booking_amount" 
+            name="booking_amount" 
             placeholder="" 
             />
             <div>
@@ -34,8 +34,6 @@
             <label for="option1">
 </form>
 
-                <div>
-                    {{ current_user.bookings }}
-                </div>
+
 
 {% endblock %}
