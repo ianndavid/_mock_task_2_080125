@@ -4,11 +4,11 @@ import os
 from flask_login import LoginManager 
 from models import User
 from db_file import db
-
+from flask import Flask, session
 
 #Creating a database
 
-db_name = 'database1.db'
+db_name = 'database.db'
 
 
 
@@ -17,9 +17,10 @@ db_name = 'database1.db'
 #This is for running the app
 def start_app():
     
+    
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'H432HDF832HBDNGGFYG'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database1'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     db.init_app(app)
     #Login manager
     login_manager = LoginManager()
@@ -37,7 +38,7 @@ def start_app():
     app.register_blueprint(frt, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-
+    
     from models import User
     
     create_database(app)

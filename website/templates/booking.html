@@ -19,6 +19,7 @@
             id="booking_date" 
             name="booking_date" 
             placeholder="" 
+            required
             />
             <div>
 
@@ -29,19 +30,32 @@
                 id="booking_name" 
                 name="booking_name" 
                 placeholder="" 
+                required
                 />
                 <div>
 
 
 
 
-<label for="booking_amount">Amount of People</label>
+<label for="booking_amount_adults">Amount of Adults</label>
             <input 
             type="number" 
             class="form" 
-            id="booking_amount" 
-            name="booking_amount" 
+            id="booking_amount_adults" 
+            name="booking_amount_adults" 
             placeholder="" 
+            required
+            />
+            <div>
+
+<label for="booking_amount_children">Amount of Children</label>
+            <input 
+            type="number" 
+            class="form" 
+            id="booking_amount_children" 
+            name="booking_amount_children" 
+            placeholder="" 
+            required
             />
             <div>
 
@@ -53,10 +67,9 @@
 
 <div id="booking-data">
 
-
-    <h2>Booking for "{{ name }}"</h2>
-    <h2>Amount of people: {{ booking_amount }}</h2>
-    <h2>Date of Booking:   {{ booking_date }}</h2>
+        {% for booking in user.bookings %}
+        {{ bookings.amount_adults }}
+        {% endfor %}
 
 </div>
 

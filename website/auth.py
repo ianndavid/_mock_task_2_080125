@@ -83,6 +83,8 @@ def Logout():
 @login_required  # User must be logged in to access this page
 def profile():
     #Allowing user to change their data
+    
+    
     if request.method == 'POST':
         # Getting user input from the form
         email = request.form.get('email')

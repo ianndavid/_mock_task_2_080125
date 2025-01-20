@@ -29,7 +29,8 @@ class User(db.Model,UserMixin):
     #Booking database
 class Booking(db.Model):
         booking_id = db.Column(db.Integer, primary_key=True)
-        amount_people = db.Column(db.Integer)
+        amount_adults = db.Column(db.Integer)
+        amount_children = db.Column(db.Integer)
         date = db.Column(db.String(120))
         #Reference to user who made booking
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -38,3 +39,6 @@ class Booking(db.Model):
 
         def __repr__(self):
             return f'<Booking {self.user.username}, {self.amount_people}, {self.date}>'
+        
+        def is_active(self):
+            return True
