@@ -29,19 +29,20 @@ def Book():
         if request.method == 'POST':
             amount_people = request.form.get('booking_amount')
             date = request.form.get('booking_date')
+            name = request.form.get('booking_name')
 
             new_booking = Booking(amount_people=amount_people, date=date)
             db.session.add(new_booking)
             db.session.commit()
 
             flash('Booking successful', category='success')
-            return redirect(url_for('frt.bookingauth', booking_id = new_booking.booking_id))
-
+            booking_amount = new_booking.amount_people
+            booking_date = new_booking.date
+            
+            
+            
+            return render_template('booking.html', user=current_user, booking_amount=booking_amount,booking_date=booking_date,name=name)
         return render_template('booking.html', user=current_user)
     
-@frt.route('/bookingauth', methods=['GET','POST'])
-@login_required
-def bookingauth():
-    
-    return render_template('bookingauth.html', user=current_user, booking_id=booking_id)
+
     

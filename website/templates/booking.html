@@ -9,7 +9,9 @@
 <div>
     Email: {{ current_user.email }}
 </div>
+
 <form form method="POST" class="form-container">
+    <p>Note: You can only make one booking</p>
 <label for="booking_date">Date for Booking</label>
             <input 
             type="date" 
@@ -19,6 +21,20 @@
             placeholder="" 
             />
             <div>
+
+<label for="booking_name">Name</label>
+                <input 
+                type="" 
+                class="form" 
+                id="booking_name" 
+                name="booking_name" 
+                placeholder="" 
+                />
+                <div>
+
+
+
+
 <label for="booking_amount">Amount of People</label>
             <input 
             type="number" 
@@ -32,8 +48,17 @@
             <br>
             <button type="submit" class="btn">Create Booking</button>
             <label for="option1">
+
 </form>
 
+<div id="booking-data">
+
+
+    <h2>Booking for "{{ name }}"</h2>
+    <h2>Amount of people: {{ booking_amount }}</h2>
+    <h2>Date of Booking:   {{ booking_date }}</h2>
+
+</div>
 
 
 {% endblock %}
