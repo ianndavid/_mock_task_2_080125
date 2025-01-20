@@ -67,10 +67,11 @@
 
 <div id="booking-data">
 
-        {% for booking in user.bookings %}
-        {{ bookings.amount_adults }}
-        {% endfor %}
-
+    <h2>Booking for "{{ name }}"</h2>
+    <h2>Amount of adults: {{ amount_adults }}</h2>
+    <h2>Amount of children: {{ amount_children }}</h2>
+    <h2>Date of Booking:   {{ booking_date }}</h2>
+    <h2>Total amount £{{ total }}</h2>
 </div>
 
 

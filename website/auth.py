@@ -111,4 +111,6 @@ def remove():
     db.session.commit()
     return redirect(url_for('auth.Login'))
 
+
+
 #remember to do the same thing for the user and allow suer to make changes
