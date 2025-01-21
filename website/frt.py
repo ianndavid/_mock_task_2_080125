@@ -50,7 +50,7 @@ def Book():
             amount_children = new_booking.amount_children
             booking_date = new_booking.date
             
-            #Adult and children ticket prices
+            #Adult and children ticket prices calculations
             Adult_cost = amount_adults * 12.45
             children_cost = amount_children * 6.75
             total = Adult_cost + children_cost
@@ -71,6 +71,6 @@ def Book():
 @login_required
 def deletebooking():
         session.clear()
-        return redirect(url_for('frt.Book'))
+        return redirect(url_for('frt.Cart'))
 
 #Complete delete booking and hotel booking
