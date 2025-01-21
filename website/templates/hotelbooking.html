@@ -4,28 +4,6 @@
 
 <form form method="POST" class="form-container">
     <p>Note: You can only make one Hotel booking</p>
-<label for="Hotel_Check_in">Date for Check in</label>
-                            <input 
-                            type="date" 
-                            class="form" 
-                            id="Hotel_Check_in" 
-                            name="Hotel_Check_in" 
-                            placeholder="" 
-                            required
-                            />
-                          
-
-
-<label for="Hotel_Check_Out">Checkout</label>
-                            <input 
-                            type="date" 
-                            class="form" 
-                            id="Hotel_Check_Out" 
-                            name="Hotel_Check_Out" 
-                            placeholder="" 
-                            required
-                            />
-                          
 
 <label for="hotel_name">Name for Hotel Booking</label>
                             <input 
@@ -35,43 +13,56 @@
                             name="hotel_name" 
                             placeholder="" 
                             required
+                            />    
+
+
+
+
+<label for="Hotel_Check_in">Date for Check in</label>
+                            <input 
+                            type="date" 
+                            class="form" 
+                            id="Hotel_Check_in" 
+                            name="Hotel_Check_in" 
+                            placeholder="" 
+                            required
                             />
+                            
+          
+
+
+<label for="Hotel_Check_Out">Checkout Date</label>
+                            <input 
+                            type="date" 
+                            class="form" 
+                            id="Hotel_Check_Out" 
+                            name="Hotel_Check_Out" 
+                            placeholder="" 
+                            required
+                            />
+
+                            
                           
 
-<label for="Hotel_Adult_book">Amount of Adults</label>
+                          
+
+<label for="Hotel_Beds">Amount of Beds</label>
                             <input 
                             type="number" 
                             class="form" 
-                            id="Hotel_Adult_book" 
-                            name="Hotel_Adult_book" 
+                            id="Hotel_Beds" 
+                            name="Hotel_Beds" 
                             placeholder="" 
                             required
+                            max="6"
+                            min="1"
                             />
                             
 
-
-<label for="Hotel_Children_book">Amount of Children</label>
-                            <input 
-                            type="number" 
-                            class="form" 
-                            id="Hotel_Children_book" 
-                            name="Hotel_Children_book" 
-                            placeholder="" 
-                            required
-                            />
-                            
-
-
-<label for="Type_room">Room Type</label>
-                            <input 
-                            type="number" 
-                            class="form" 
-                            id="rooms" 
-                            name="rooms" 
-                            placeholder="" 
-                            required
-                            />
-                            
+                            <br>
+                            <button type="submit" class="btn">Create Hotel Booking</button>
+                            <label for="option1">                           
 
 </form>
-{% endblock %}
+
+  {% endblock %}

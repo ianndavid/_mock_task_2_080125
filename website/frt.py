@@ -66,6 +66,16 @@ def Book():
         return render_template('booking.html', user=current_user)
     
 
+@frt.route('/hotelbooking', methods=['GET', 'POST'])
+@login_required
+def HotelBook():
+        
+        return render_template('hotelbooking.html',user=current_user)
+
+
+
+
+
 #For deleting booking
 @frt.route('/deletebooking', methods=['GET', 'POST'])
 @login_required

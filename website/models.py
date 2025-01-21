@@ -42,3 +42,12 @@ class Booking(db.Model):
         
         def is_active(self):
             return True
+        
+class Hotel_Booking(db.Model):
+    
+    Hotel_id = db.Column(db.Integer, primary_key=True)
+    Hotel_Check_in = db.Column(db.String(120))
+    Hotel_Check_Out = db.Column(db.String(120))
+    Hotel_Beds = db.Column(db.Integer)
+    
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
