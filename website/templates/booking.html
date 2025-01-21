@@ -11,7 +11,7 @@
 </div>
 
 <form form method="POST" class="form-container">
-    <p>Note: You can only make one booking</p>
+    <small>Note: You can only make one booking</small>
 <label for="booking_date">Date for Booking</label>
             <input 
             type="date" 
@@ -22,6 +22,11 @@
             required
             />
             <div>
+                <script>
+                    // To Only allow user to book dates today and ahead
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('booking_date').setAttribute('min', today);
+                </script>
 
 <label for="booking_name">Name</label>
                 <input 
@@ -68,10 +73,12 @@
 <div id="booking-data">
 
     <h2>Booking for "{{ name }}"</h2>
+    <small>*Bookings are made under your email<small></small>
     <h2>Amount of adults: {{ amount_adults }}</h2>
     <h2>Amount of children: {{ amount_children }}</h2>
     <h2>Date of Booking:   {{ booking_date }}</h2>
     <h2>Total amount £{{ total }}</h2>
+    
 </div>
 
 
