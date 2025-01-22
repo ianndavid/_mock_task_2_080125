@@ -43,6 +43,10 @@ class Booking(db.Model):
         def is_active(self):
             return True
         
+        def remove(self):
+        db.session.delete(self)
+
+        
 class Hotel_Booking(db.Model):
     
     Hotel_id = db.Column(db.Integer, primary_key=True)
@@ -51,3 +55,5 @@ class Hotel_Booking(db.Model):
     Hotel_Beds = db.Column(db.Integer)
     
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    user = db.relationship('User', back_populates='hotel_bookings')
