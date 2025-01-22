@@ -3,7 +3,10 @@ from flask import Flask, render_template, session, redirect, request, flash, url
 from flask_login import login_user,login_required,logout_user,current_user
 from db_file import db
 from models import Booking
+from models import Hotel_Booking
 from models import User
+from datetime import datetime
+
 #where main pages will be handled
 frt = Blueprint('frt', __name__)
 
@@ -70,6 +73,47 @@ def Book():
 @login_required
 def HotelBook():
         
+        if request.method == 'POST':
+        
+            
+            Hotel_Check_in = request.form.get('Hotel_Check_in')
+            Hotel_Check_Out = request.form.get('Hotel_Check_Out')
+            Hotel_Beds = request.form.get('Hotel_Beds')
+            
+            
+            new_hotel_booking = Hotel_Booking(Hotel_Check_in=Hotel_Check_in,Hotel_Check_Out=Hotel_Check_Out,Hotel_Beds=Hotel_Beds)
+            db.session.add(new_hotel_booking)
+            db.session.commit()
+            flash('Hotel Booking successful', category='success')
+            
+        
+            
+            Hotel_Check_in = new_hotel_booking.Hotel_Check_in
+            Hotel_Check_Out = new_hotel_booking.Hotel_Check_Out
+            Hotel_Beds = new_hotel_booking.Hotel_Beds
+            
+            
+            # Convert the strings to datetime objects
+            date1 = datetime.strptime(Hotel_Check_in, "%Y-%m-%d")
+            date2 = datetime.strptime(Hotel_Check_Out, "%Y-%m-%d")
+
+                # Calculating the time difference
+            difference_in_time = date2 - date1
+
+                # Calculating the number of days between the two dates
+            difference_in_days = difference_in_time.days
+
+            hotel_total = difference_in_days * 15.45
+                        
+
+            
+            session['Hotel_Check_in'] = Hotel_Check_in
+            session['Hotel_Check_Out'] = Hotel_Check_Out
+            session['Hotel_Beds'] = Hotel_Beds
+            session['hotel_total'] = hotel_total
+            session['difference_in_days'] = difference_in_days
+            
+            return render_template('hotelbooking.html', Hotel_Check_in=Hotel_Check_in,Hotel_Check_Out=Hotel_Check_Out,Hotel_Beds=Hotel_Beds,difference_in_days=difference_in_days,user=current_user,hotel_total=hotel_total) 
         return render_template('hotelbooking.html',user=current_user)
 
 

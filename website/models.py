@@ -19,6 +19,8 @@ class User(db.Model,UserMixin):
     password = db.Column(db.String(150))
     
     bookings = db.relationship('Booking', lazy=True)
+    
+    hotel_bookings = db.relationship('Hotel_Booking', lazy=True)
 
     def remove(self):
         db.session.delete(self)
@@ -39,21 +41,24 @@ class Booking(db.Model):
 
         def __repr__(self):
             return f'<Booking {self.user.username}, {self.amount_people}, {self.date}>'
-        
+            
         def is_active(self):
             return True
-        
+            
         def remove(self):
-        db.session.delete(self)
+            db.session.delete(self)
 
         
 class Hotel_Booking(db.Model):
     
-    Hotel_id = db.Column(db.Integer, primary_key=True)
-    Hotel_Check_in = db.Column(db.String(120))
-    Hotel_Check_Out = db.Column(db.String(120))
-    Hotel_Beds = db.Column(db.Integer)
+        Hotel_id = db.Column(db.Integer, primary_key=True)
+        Hotel_Check_in = db.Column(db.String(120))
+        Hotel_Check_Out = db.Column(db.String(120))
+        Hotel_Beds = db.Column(db.Integer)
+        
+        user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+        
+        user = db.relationship('User', back_populates='hotel_bookings')
     
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    
-    user = db.relationship('User', back_populates='hotel_bookings')
+        def remove(self):
+            db.session.delete(self)
