@@ -17,7 +17,7 @@ def home():
 
 @frt.route('/faq')
 def FAQ():
-    return render_template('faq.html')
+    return render_template('faq.html',user=current_user)
 
 
 #Cart page
@@ -26,15 +26,15 @@ def Cart():
     amountadults = session.get('amountadults', None)
     amountchildren = session.get('amountadults', None)
 
-    total = session.get('total', )
+    total = session.get('total',)
 
 
-    hotel_total = session.get('hotel_total', )
+    hotel_total = session.get('hotel_total', None)
     Hotel_Check_in = session.get('Hotel_Check_in', None)
     Hotel_Check_Out = session.get('Hotel_Check_Out', None)
     Hotel_Beds = session.get('Hotel_Beds', None)
 
-    Cart_total = hotel_total + total
+    
     
     
     
@@ -47,7 +47,7 @@ def Cart():
                            Hotel_Beds=Hotel_Beds,
                            Hotel_Check_in=Hotel_Check_in,
                            hotel_total=hotel_total,
-                           Cart_total=Cart_total)
+                           )
 
 
 #try get Booking
@@ -129,7 +129,9 @@ def HotelBook():
         return render_template('hotelbooking.html',user=current_user)
 
 
-
+@frt.route('/choice')
+def Choice():
+    return render_template('choice.html',user=current_user)
 
 
 #For deleting booking
@@ -140,3 +142,4 @@ def deletebooking():
         return redirect(url_for('frt.Cart'))
 
 #Complete delete booking and hotel booking
+

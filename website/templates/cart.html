@@ -10,12 +10,11 @@
     <div class="Booking-Data" onclick="">
         Amount of Children {{ amountchildren }}
         Amount of Adults {{ amountadults }}
-        £{{ totalamount }}
+        £{{ total  }}
     </div>
     <li class="nav-item">
-        <a class="nav-link" id="delete" onclick="return confirm('Are you sure you want to DELETE your BOOKING. This Cannot be undone')" href="/deletebooking">Delete Booking</a>
+        <a class="nav-link" id="delete"  href="/booking">Edit Booking</a>
         </li>
-
 
     <h2> Hotel Booking </h2>
     <div class="Booking-Data" onclick="">
@@ -25,11 +24,20 @@
         Amount of Beds:{{ Hotel_Beds }}
         Total Amount for Hotel:{{ hotel_total }}
     </div>
+    <li class="nav-item">
+        <a class="nav-link" id="delete"  href="/hotelbooking">Edit Booking</a>
+        </li>
 
     <h2> Full Amount</h2>
     <div class="Booking-Data" onclick="">
        Total: {{ Cart_total }}
     </div>
+
+    <li class="nav-item">
+        <a class="nav-link" id="delete" onclick="return confirm('Are you sure you want to DELETE your BOOKING. This Cannot be undone')" href="/deletebooking">Delete Bookings</a>
+        </li>
+
+        <button type="submit" class="btn btn-primary">CheckOut</button>
 
 
 {% endblock %}

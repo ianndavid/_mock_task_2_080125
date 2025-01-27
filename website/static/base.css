@@ -1,26 +1,73 @@
-.Parent{
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+
+
+*{
+    font-family: "Finger Paint", serif;
 }
+
+
+body {
+    background-color: #558564;
+    }
+
+.bg-light {
+        background-color: #F9C784 !important;    
+    }
 
 .form-container{
-
-            position: static;
-            right: 200px;
-            width: 700px;
-            height: 200px;
-            border: 1px solid black;
-            text-align: center;
-            display: table-cell;
-            
-
+    font-family: "Finger Paint", serif;
+    background-color: #F9C784;
+    border: solid 1px;
+    text-align: center;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 25px 25px 25px 25px;
+    border-radius: 20px;
+}
+.form-container .Hotel_Booking_Navlink {
+    font-size: 70px;
+    color: black;
 }
 
+.form-container .Booking_Navlink {
+    font-size: 70px;
+    color: black;
+}
 
+.form-container .Booking_Navlink:hover {
+    color: rgb(105, 100, 100);
+    font-size: 80px;
+}
 
+.form-container .Hotel_Booking_Navlink:hover {
+    color: rgb(105, 100, 100);
+    font-size: 80px;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: #F9C784;
+    color: black;
+  }
+
+  input[type=email] {
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: #F9C784;
+    color: black;
+  }
+
+  input[type=password] {
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: #F9C784;
+    color: black;
+  }
 
 img {
 
-    margin-top: 200px;
-
     width: 300px;
     height: 200px;
+
     }
