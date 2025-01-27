@@ -1,5 +1,26 @@
-.form-container{
-    
-        
-      
+.Parent{
 }
+
+.form-container{
+
+            position: static;
+            right: 200px;
+            width: 700px;
+            height: 200px;
+            border: 1px solid black;
+            text-align: center;
+            display: table-cell;
+            
+
+}
+
+
+
+
+img {
+
+    margin-top: 200px;
+
+    width: 300px;
+    height: 200px;
+    }
