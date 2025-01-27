@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
+
 <h3>Make a Booking </h3>
 
 <div>
@@ -12,6 +13,8 @@
 
 <form form method="POST" class="form-container">
     <small>Note: You can only make one booking</small>
+
+<div>
 <label for="booking_date">Date for Booking</label>
             <input 
             type="date" 
@@ -21,7 +24,7 @@
             placeholder="" 
             required
             />
-            <div>
+
                 <script>
                     // Get today's date
                     const today = new Date();
@@ -45,7 +48,9 @@
                     dateInput.setAttribute('min', todayFormatted);
                     dateInput.setAttribute('max', maxDateFormatted);
                 </script> 
+</div>                
 
+<div>
 <label for="booking_name">Name</label>
                 <input 
                 type="" 
@@ -55,11 +60,11 @@
                 placeholder="" 
                 required
                 />
-                <div>
+</div>               
 
 
 
-
+<div>
 <label for="booking_amount_adults">Amount of Adults</label>
             <input 
             type="number" 
@@ -70,8 +75,8 @@
             required
             min="1"
             />
-            <div>
-
+</div>          
+<div>
 <label for="booking_amount_children">Amount of Children</label>
             <input 
             type="number" 
@@ -82,13 +87,16 @@
             required
             min="1"
             />
-            <div>
+            
 
             <br>
             <button type="submit" class="btn">Create Booking</button>
             <label for="option1">
-
+</div>
 </form>
+
+
+
 
 <div id="booking-data">
 

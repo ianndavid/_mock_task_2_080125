@@ -25,11 +25,29 @@ def FAQ():
 def Cart():
     amountadults = session.get('amountadults', None)
     amountchildren = session.get('amountadults', None)
-    totalamount = session.get('totalamount')
+
+    total = session.get('total', )
+
+
+    hotel_total = session.get('hotel_total', )
+    Hotel_Check_in = session.get('Hotel_Check_in', None)
+    Hotel_Check_Out = session.get('Hotel_Check_Out', None)
+    Hotel_Beds = session.get('Hotel_Beds', None)
+
+    Cart_total = hotel_total + total
     
-    return render_template('cart.html', amountadults=amountadults,user=current_user,amountchildren=amountchildren,totalamount=totalamount)
-
-
+    
+    
+    return render_template('cart.html', 
+                           amountadults=amountadults,
+                           user=current_user,
+                           amountchildren=amountchildren,
+                           total=total,
+                           Hotel_Check_Out = Hotel_Check_Out,
+                           Hotel_Beds=Hotel_Beds,
+                           Hotel_Check_in=Hotel_Check_in,
+                           hotel_total=hotel_total,
+                           Cart_total=Cart_total)
 
 
 #try get Booking
@@ -56,13 +74,14 @@ def Book():
             #Adult and children ticket prices calculations
             Adult_cost = amount_adults * 12.45
             children_cost = amount_children * 6.75
+            
             total = Adult_cost + children_cost
             total = round(total, 3)
             
             #Session for them to be called in other pages such as cart
             session['amountadults'] = amount_adults
             session['amountchildren'] = amount_children
-            session['totalamount'] = total
+            session['total'] = total
             
             #passing data into booking.html
             return render_template('booking.html',booking_id=current_user.id, user=current_user,booking_date=booking_date ,name=name, amount_children=amount_children,amount_adults=amount_adults,total=total)
@@ -75,23 +94,18 @@ def HotelBook():
         
         if request.method == 'POST':
         
-            
             Hotel_Check_in = request.form.get('Hotel_Check_in')
             Hotel_Check_Out = request.form.get('Hotel_Check_Out')
             Hotel_Beds = request.form.get('Hotel_Beds')
-            
             
             new_hotel_booking = Hotel_Booking(Hotel_Check_in=Hotel_Check_in,Hotel_Check_Out=Hotel_Check_Out,Hotel_Beds=Hotel_Beds)
             db.session.add(new_hotel_booking)
             db.session.commit()
             flash('Hotel Booking successful', category='success')
             
-        
-            
             Hotel_Check_in = new_hotel_booking.Hotel_Check_in
             Hotel_Check_Out = new_hotel_booking.Hotel_Check_Out
             Hotel_Beds = new_hotel_booking.Hotel_Beds
-            
             
             # Convert the strings to datetime objects
             date1 = datetime.strptime(Hotel_Check_in, "%Y-%m-%d")
@@ -99,14 +113,12 @@ def HotelBook():
 
                 # Calculating the time difference
             difference_in_time = date2 - date1
-
                 # Calculating the number of days between the two dates
             difference_in_days = difference_in_time.days
-
             hotel_total = difference_in_days * 15.45
-                        
+            hotel_total = round(hotel_total, 3) 
 
-            
+            #Sessioning them so they can be called and showed in different pages 
             session['Hotel_Check_in'] = Hotel_Check_in
             session['Hotel_Check_Out'] = Hotel_Check_Out
             session['Hotel_Beds'] = Hotel_Beds

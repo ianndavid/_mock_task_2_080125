@@ -3,7 +3,7 @@
 {% block content %}
 
 <form form method="POST" class="form-container">
-    <p>Note: You can only make one Hotel booking, tickets are seperate</p>
+    <p>Note: You can only make one Hotel booking, tickets COME with Hotel Bookings</p>
 
 
 <label for="hotel_name">Name for Hotel Booking</label>
@@ -68,11 +68,11 @@
 
 
 
-{{ difference_in_days }}
-{{ difference_in_days }}
-{{ difference_in_days }}
-{{ difference_in_days }}
-{{ difference_in_days }}
-{{ difference_in_days }}
+Amount of days: {{ difference_in_days }}
+Check in Date: {{ Hotel_Check_in }}
+Check Out Date: {{ Hotel_Check_Out }}
+Amount of Beds:{{ Hotel_Beds }}
+
+Total Amount for{{ hotel_total }}
 
   {% endblock %}
