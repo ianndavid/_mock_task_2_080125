@@ -38,10 +38,8 @@ def Cart():
         Hotel_Check_Out = session.get('Hotel_Check_Out', None)
         Hotel_Beds = session.get('Hotel_Beds', None)
 
-
-        total = int(float(total))
-        hotel_total = int(float(hotel_total))
-        
+        total = int(0 if total is None else total)
+        hotel_total = int(0 if hotel_total is None else hotel_total)
         
         overall = hotel_total + total
         
@@ -53,8 +51,8 @@ def Cart():
                            Hotel_Check_Out = Hotel_Check_Out,
                            Hotel_Beds=Hotel_Beds,
                            Hotel_Check_in=Hotel_Check_in,
-                           hotel_total=hotel_total,
-                           overall=overall )
+                           hotel_total=hotel_total,overall=overall
+                            )
     return render_template('cart.html', 
                            amountadults=amountadults,
                            user=current_user,
@@ -72,6 +70,7 @@ def Cart():
 @frt.route('/booking', methods=['GET','POST'])
 @login_required
 def Book():
+    
         if request.method == 'POST':
             total = 0
             #recieving users infomation
@@ -96,6 +95,8 @@ def Book():
             
             total = Adult_cost + children_cost
             total = round(total, 3)
+            
+            
             
             #Session for them to be called in other pages such as cart
             session['amountadults'] = amount_adults

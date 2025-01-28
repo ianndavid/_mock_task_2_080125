@@ -1,0 +1,12 @@
+#container2 {
+    margin-left:  360px;
+    display: flex;
+    gap: 130px;
+}
+
+.jumbotron {
+    background-image: url(/website/static/images/r.png) !important
+}
+
+
+make flask static folder access from css 
