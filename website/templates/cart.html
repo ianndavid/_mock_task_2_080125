@@ -4,8 +4,7 @@
 
 
 
-
-
+<div class="form-container" >
     <h2>Booking:</h2>
     <div class="Booking-Data" onclick="">
         Amount of Children {{ amountchildren }}
@@ -30,14 +29,15 @@
 
     <h2> Full Amount</h2>
     <div class="Booking-Data" onclick="">
-       Total: {{ Cart_total }}
+       Total: {{ overall }}
     </div>
 
     <li class="nav-item">
         <a class="nav-link" id="delete" onclick="return confirm('Are you sure you want to DELETE your BOOKING. This Cannot be undone')" href="/deletebooking">Delete Bookings</a>
         </li>
 
-        <button type="submit" class="btn btn-primary">CheckOut</button>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Purchace successful')">CheckOut</button>
 
+</div>
 
 {% endblock %}

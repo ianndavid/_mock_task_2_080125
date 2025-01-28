@@ -10,6 +10,8 @@ from datetime import datetime
 #where main pages will be handled
 frt = Blueprint('frt', __name__)
 
+
+
 #Main routes
 @frt.route('/')
 def home():
@@ -21,23 +23,38 @@ def FAQ():
 
 
 #Cart page
-@frt.route('/cart')
+@frt.route('/cart', methods=['GET','POST'])
+@login_required
 def Cart():
-    amountadults = session.get('amountadults', None)
-    amountchildren = session.get('amountadults', None)
+    if request.method == 'GET':
+        
+        amountadults = session.get('amountadults', None)
+        amountchildren = session.get('amountadults', None)
+        total = session.get('total',)
 
-    total = session.get('total',)
+
+        hotel_total = session.get('hotel_total', None)
+        Hotel_Check_in = session.get('Hotel_Check_in', None)
+        Hotel_Check_Out = session.get('Hotel_Check_Out', None)
+        Hotel_Beds = session.get('Hotel_Beds', None)
 
 
-    hotel_total = session.get('hotel_total', None)
-    Hotel_Check_in = session.get('Hotel_Check_in', None)
-    Hotel_Check_Out = session.get('Hotel_Check_Out', None)
-    Hotel_Beds = session.get('Hotel_Beds', None)
-
-    
-    
-    
-    
+        total = int(float(total))
+        hotel_total = int(float(hotel_total))
+        
+        
+        overall = hotel_total + total
+        
+        return render_template('cart.html', 
+                           amountadults=amountadults,
+                           user=current_user,
+                           amountchildren=amountchildren,
+                           total=total,
+                           Hotel_Check_Out = Hotel_Check_Out,
+                           Hotel_Beds=Hotel_Beds,
+                           Hotel_Check_in=Hotel_Check_in,
+                           hotel_total=hotel_total,
+                           overall=overall )
     return render_template('cart.html', 
                            amountadults=amountadults,
                            user=current_user,
@@ -47,6 +64,7 @@ def Cart():
                            Hotel_Beds=Hotel_Beds,
                            Hotel_Check_in=Hotel_Check_in,
                            hotel_total=hotel_total,
+                           overall=overall
                            )
 
 
@@ -55,6 +73,7 @@ def Cart():
 @login_required
 def Book():
         if request.method == 'POST':
+            total = 0
             #recieving users infomation
             amount_adults = request.form.get('booking_amount_adults')
             amount_children = request.form.get('booking_amount_children')
