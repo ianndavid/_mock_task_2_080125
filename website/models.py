@@ -44,11 +44,11 @@ class Booking(db.Model):
             
         def is_active(self):
             return True
-            
+        #Allows Database to be deleted
         def remove(self):
             db.session.delete(self)
 
-        
+    #Booking Hotel Tickets
 class Hotel_Booking(db.Model):
     
         Hotel_id = db.Column(db.Integer, primary_key=True)

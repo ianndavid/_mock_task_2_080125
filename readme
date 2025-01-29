@@ -3,3 +3,7 @@ pip install flask
 pip install Flask-SQLAlchemy
 
 pip install flask-login
+
+Start in virtual enviroment
+
+Run _init_ then Main to start

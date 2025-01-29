@@ -3,6 +3,7 @@
 {% block content %}
 <form method="POST" class="form-container">
     
+    <div class="form-container">
     <h3>Login</h3>
 
 
@@ -14,7 +15,7 @@
             name="username" 
             placeholder="Enter a username" 
             required/>
-
+        <br>
             <label for="password">Password</label>
             <input 
             type="password" 
@@ -23,9 +24,12 @@
             name="password" 
             placeholder="Enter a password" 
             required/>
-
+        <br>
             <button type="submit" class="btn">Login</button>
-    
+        </div>  
+        <li class="nav-item">
+            <a class="nav-link" href="/signup">Dont Have an Account? Sign up</a>
+            </li>
     </div>
 </form>
 {% endblock %}

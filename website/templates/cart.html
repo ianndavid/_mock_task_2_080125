@@ -5,31 +5,39 @@
 
 
 <div class="form-container" >
-    <h2>Booking:</h2>
+    <div class="form-container">
+    <h2>Ticket Booking:</h2>
     <div class="Booking-Data" onclick="">
         Amount of Children {{ amountchildren }}
+        <br>
         Amount of Adults {{ amountadults }}
         £{{ total  }}
     </div>
     <li class="nav-item">
         <a class="nav-link" id="delete"  href="/booking">Edit Booking</a>
         </li>
-
+    </div>
+    <div class="form-container">  
     <h2> Hotel Booking </h2>
     <div class="Booking-Data" onclick="">
-        Amount of days: {{ difference_in_days }}
+        <br>
         Check in Date: {{ Hotel_Check_in }}
+        <br>
         Check Out Date: {{ Hotel_Check_Out }}
+        <br>
         Amount of Beds:{{ Hotel_Beds }}
-        Total Amount for Hotel:{{ hotel_total }}
+        <br>
+        Total Amount for Hotel:£{{ hotel_total }}
+        <br>
     </div>
+     
     <li class="nav-item">
         <a class="nav-link" id="delete"  href="/hotelbooking">Edit Booking</a>
         </li>
-
-    <h2> Full Amount</h2>
+    </div>    
+    <h2> Total</h2>
     <div class="Booking-Data" onclick="">
-       Total: {{ overall }}
+        <h2>£{{ overall }}</h2>
     </div>
 
     <li class="nav-item">

@@ -27,6 +27,8 @@ def FAQ():
 @login_required
 def Cart():
     if request.method == 'GET':
+        #Gets Both Ticket Booking and Hotel Booking Data
+        
         
         amountadults = session.get('amountadults', None)
         amountchildren = session.get('amountadults', None)
@@ -38,11 +40,14 @@ def Cart():
         Hotel_Check_Out = session.get('Hotel_Check_Out', None)
         Hotel_Beds = session.get('Hotel_Beds', None)
 
+        # they are NoneTypes this converts them to integers 
         total = int(0 if total is None else total)
         hotel_total = int(0 if hotel_total is None else hotel_total)
         
+        #Calculation
         overall = hotel_total + total
-        
+                
+
         return render_template('cart.html', 
                            amountadults=amountadults,
                            user=current_user,
@@ -114,6 +119,7 @@ def HotelBook():
         
         if request.method == 'POST':
         
+            #Gets hotel check in and check out dates
             Hotel_Check_in = request.form.get('Hotel_Check_in')
             Hotel_Check_Out = request.form.get('Hotel_Check_Out')
             Hotel_Beds = request.form.get('Hotel_Beds')

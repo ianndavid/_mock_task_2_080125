@@ -2,17 +2,17 @@
 
 {% block content %}
 
+<div>
+    <div class="form-container">
 <h3>Make a Booking </h3>
-
-<div>
-    Booking for {{ current_user.username }}
-</div>
-<div>
+    Booking for {{ current_user.username }},<br>
     Email: {{ current_user.email }}
-</div>
 
+</div>
 <form form method="POST" class="form-container">
     <small>Note: You can only make one booking</small>
+
+
 
 <div>
 <label for="booking_date">Date for Booking</label>
@@ -98,7 +98,7 @@
 
 
 
-<div id="booking-data">
+<div id="booking-data" class="form-container">
 
     <h2>Booking for "{{ name }}"</h2>
     <small>*Bookings are made under your email<small></small>

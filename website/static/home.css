@@ -1,12 +1,42 @@
 #container2 {
-    margin-left:  360px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    gap: 130px;
+    justify-content: center;
+    gap: 80px;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
+
+
+
 
 .jumbotron {
-    background-image: url(/website/static/images/r.png) !important
+    background-image: url(/static/images/r.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bigimage{
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 100px 100px;
 }
 
 
-make flask static folder access from css 
+.contentcontainer{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 3fr 20px
+}
+
+.content-img{
+    background-image: url(/static/images/koala.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

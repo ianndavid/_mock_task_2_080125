@@ -2,12 +2,14 @@
 
 {% block content %}
 
-<h1>Welcome...{{ current_user.username }}</h1>
+
 
 <br>
 
 
 <form method="POST" class="form-container">
+    <h1>Welcome...{{ current_user.username }}</h1>
+    <div class="form-container">
     <h3>Profile Information</h3>
             <h1>Settings</h1>
             <label for="email">Change email</label>
@@ -40,9 +42,11 @@
                 <div>
                     
                 </div>
+            </div>
     </div>
 </form>
 
+<div class="form-container">
     <li class="nav-item">
     <a class="nav-link" id="delete" onclick="return confirm('Are you sure you want to DELETE your ACCOUNT. This Cannot be undone')" href="/remove">Delete Account</a>
     </li>
@@ -51,14 +55,21 @@
     
     <li class="nav-item">
         <a class="nav-link" href="/booking">Booking Tickets</a>
-        </li>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/hotelbooking">Book Hotel tickets</a>
-            </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/hotelbooking">Book Hotel tickets</a>
+    </li>
 
-           
+    
 
 
+
+
+
+ </div>       
+        
+    
+    
         
 {% endblock %}
