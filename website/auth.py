@@ -88,14 +88,19 @@ def profile():
     if request.method == 'POST':
         # Getting user input from the form
         email = request.form.get('email')
+        username = request.form.get('username')
 
         # Checking if the email is already taken 
         check_email = User.query.filter_by(email=email).first()
+        check_username = User.query.filter_by(username=username).first()
 
         if check_email:
             flash('Email is in use', category='error')
+        if check_username:
+            flash('Username is in use', category='error')
         else:
             # Update user data if all validations pass
+            current_user.username = username
             current_user.email = email
             db.session.commit()  # Commit the changes to the database
             flash('Profile updated successfully!', category='success')
