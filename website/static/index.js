@@ -27,8 +27,7 @@ dateInput2.setAttribute('max', maxDateFormatted);
                                
 
 
-function changefont() {
-    const fontchange = document.getElementById('change-font');
-    fontchange.style.fontFamily = "Arial, sans-serif";
+function changeFont() {
+    document.body.style.fontFamily = "Arial, sans-serif";
 }
 
