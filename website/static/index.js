@@ -28,6 +28,6 @@ dateInput2.setAttribute('max', maxDateFormatted);
 
 
 function changeFont() {
-    document.body.style.fontFamily = "Arial, sans-serif";
+    const element = document.getElementById('change-font');
+    element.style.backgroundColor = 'red';
 }
-
